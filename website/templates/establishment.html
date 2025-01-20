@@ -1,0 +1,71 @@
+{% extends "base.html" %} 
+{% block title %}Start your company{% endblock %} 
+
+{% block content %}
+<br><br><br>
+<h1 align="center">Start a company</h1>
+<hr>
+<p><strong>Requirements: </strong></p>
+<p>* Company name must be 3-100 characters</p>
+<p>* Registration code must be 7 numbers</p>
+<p>* Foundation date can not be in the future</p>
+<p>* Capital must be more than 2499</p>
+<br>
+<h3><strong>Company details:</strong></h3>
+<br>
+<form method="POST" action="/establish">
+    <label for="name">Company Name:</label>
+    <input type="text" name="name" required>
+    <br>
+    <label for="registration_code">Registration Code:</label>
+    <input type="number" name="registration_code" required>
+    <br>
+    <label for="foundation_date">Foundation Date:</label>
+    <input type="date" name="foundation_date" required>
+    <br>
+    <label for="capital">Capital (€):</label>
+    <input type="number" name="capital" required>
+    <br>
+    <br>
+    <h1 align="center">Add owner(s)</h1>
+    <hr>
+    <p><strong>Requirements: </strong></p>
+    <p>* First and last name must be 3-20 characters</p>
+    <p>* ID code must be 11 numbers</p>
+    <p>* Owner(s) capital must equal to company's total capital</p>
+    <br>
+    <h3><strong>Owner(s) details: </strong></h3>
+    <div id="owners-container">
+        <div class="owner-entry">
+            <br>
+            <label for="owner_type">Owner Type:</label>
+            <select name="owner_type[]" required>
+                <option value="Physical">Physical</option>
+                <option value="Legal">Legal</option>
+            </select>
+            <br>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name[]" pattern="[A-Za-z\s]+" required>
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name[]" pattern="[A-Za-z\s]+" required>
+            <br>
+            <label for="personal_id">Personal ID code:</label>
+            <input type="number" name="personal_id[]" required>
+            <br>
+            <label for="share_amount">Share Amount (€):</label>
+            <input type="number" name="share_amount[]" min="1" required>
+            <br>
+        </div>
+    </div>
+    <br>
+    <button class="button" type="button" onclick="addOwner()">Add another owner</button>
+    <button class="button" type="button" onclick="removeOwner()">Remove last owner</button>
+    <hr>
+    <div align="right">
+        <button class="button" type="submit">Establish company</button>
+    </div>
+</form>
+<div style="height: 500px;"></div>
+
+{% endblock %}

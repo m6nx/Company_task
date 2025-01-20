@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<br><br><br>
+<h1 align="center">Search for a company</h1>
+<hr>
+<br>
+<div align="center">
+    
+    <form method="GET" action="{{ url_for('views.home') }}">
+        <input 
+            type="text" 
+            name="query" 
+            id="search"
+            placeholder="Company name, registration code, shareholder name, ID code" required>
+        <button class="button" type="submit" id="searchBtn">Search</button>
+    </form>
+    <br><br>
+
+    {% if companies %}
+        <h2>Search results:</h2>
+        <ul id="searchResults">
+            {% for company in companies %}
+            <li>
+                <a href="{{ url_for('views.data_view', company_id=company.id) }}" style="color: blue;">
+                    <strong>{{ company.name }}</strong> ({{ company.registration_code }})
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% elif query %}
+        <p>No results found for "<strong>{{ query }}</strong>".</p>
+    {% endif %}
+</div>
+{% endblock %}

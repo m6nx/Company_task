@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Data View{% endblock %}
+
+{% block content %}
+<br><br><br>
+<h1 align="center">Data view</h1>
+<hr>
+<br>
+<div align="center">
+    {% if companies %}
+        {% for company in companies %}
+        <h2>Company: <strong>{{ company.name }}</strong></h2>
+        <br>
+        <p><strong>Registration Code:</strong> {{ company.registration_code }}</p>
+        <p><strong>Foundation Date:</strong> {{ company.foundation_date }}</p>
+        <p><strong>Capital(€):</strong> {{ company.capital }}</p>
+        <p>---------------------</p>
+        <h3><strong>Owner(s)</strong></h3>
+        {% if company.owners %}
+            {% for owner in company.owners %}
+                {% if owner.owner_type == 'Physical' %}
+                <p><strong>First name: </strong> {{ owner.first_name }}</p>
+                <p><strong>Last name: </strong> {{ owner.last_name }}</p>
+                <p><strong>Owner type: </strong> {{ owner.owner_type }} entity</p>
+                    {% if owner.is_founder %}
+                    <p><strong>Founder: </strong> Yes</p>
+                    {% else %}
+                    <p><strong>Founder: </strong> No</p>
+                    {% endif %}
+                <p><strong>ID code: </strong> {{ owner.personal_id }}</p>
+                <p><strong>Share amount(€): </strong> {{ owner.share_amount }}</p>
+                <p>--------------------------------------------</p>
+                {% else %}
+                <p><strong>First name: </strong> {{ owner.first_name }}</p>
+                <p><strong>Last name: </strong> {{ owner.last_name }}</p>
+                <p><strong>Owner type: </strong> {{ owner.owner_type }} entity</p>
+                {% if owner.is_founder %}
+                    <p><strong>Founder: </strong>Yes</p>
+                    {% else %}
+                    <p><strong>Founder: </strong>No</p>
+                    {% endif %}
+                <p><strong>Registration code: </strong> {{ company.registration_code }} </p>
+                <p><strong>Share amount(€): </strong> {{ owner.share_amount }}</p>
+                <p>--------------------------------------------</p>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No owners found for this company.</p>
+        {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>No results found for your search.</p>
+    {% endif %}
+</div>
+{% endblock %}
