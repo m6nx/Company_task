@@ -18,6 +18,8 @@ Flask
 
 pip
 
+Sqlalchemy (pip install flask_sqlalchemy)
+
 SETUP:
 
 Clone the repository:
@@ -40,6 +42,6 @@ source venv/bin/activate
 
 START THE DEVELOPMENT SERVER:
 
-flask run
+run main.py
 
 * the app will run at: http://127.0.0.1:5000
