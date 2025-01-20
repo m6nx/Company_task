@@ -3,6 +3,7 @@ OVERVIEW:
 This Flask application is designed to establish companies, search for companies and to view data of the other companies.
 
 FEATURES:
+
 Home page- Search for an existing compnay.
 
 Establish your company page- Create your own company with possibility to add multiple owners.
@@ -10,8 +11,11 @@ Establish your company page- Create your own company with possibility to add mul
 Data view- View data of the existing companies.
 
 ENSURE THE FOLLOWING IS INSTALLED:
+
 Python 3.8+
+
 Flask
+
 pip
 
 SETUP:
