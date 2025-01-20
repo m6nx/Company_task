@@ -10,6 +10,12 @@ Establish your company page- Create your own company with possibility to add mul
 
 Data view- View data of the existing companies.
 
+DOWNLOAD:
+
+1.Download and extract files
+
+2.Open extracted folder in code editor
+
 ENSURE THE FOLLOWING IS INSTALLED:
 
 Python 3.8+
