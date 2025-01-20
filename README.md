@@ -12,9 +12,7 @@ Data view- View data of the existing companies.
 
 DOWNLOAD:
 
-1.Download and extract files
-
-2.Open extracted folder in code editor
+Download and extract files
 
 ENSURE THE FOLLOWING IS INSTALLED:
 
