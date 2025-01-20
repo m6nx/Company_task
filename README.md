@@ -23,6 +23,7 @@ SETUP:
 Clone the repository:
 
 git clone https://github.com/m6nx/Company_task
+
 cd Company_task
 
 Set up a virtual environment:
